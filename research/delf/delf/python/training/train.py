@@ -450,6 +450,7 @@ def main(argv):
 
             file_path = '%s/delf_weights' % FLAGS.logdir
             model.save_weights(file_path, save_format='tf')
+            model.save_weights(file_path+".hdf5", save_format='h5')
             logging.info('Saved weights (%d) at %s', global_step_value,
                          file_path)
 

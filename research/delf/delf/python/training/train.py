@@ -58,6 +58,8 @@ flags.DEFINE_string(
     'imagenet_checkpoint', None,
     'ImageNet checkpoint for ResNet backbone. If None, no checkpoint is used.')
 
+flags.DEFINE_integer('save_interval', 1000, 'save interval')
+
 
 def _record_accuracy(metric, logits, labels):
   """Record accuracy given predicted logits and ground-truth labels."""
@@ -134,7 +136,7 @@ def main(argv):
   num_eval_batches = int(50000 / global_batch_size)
   report_interval = 100
   eval_interval = 1000
-  save_interval = 20000
+  save_interval = FLAGS.save_interval
 
   initial_lr = FLAGS.initial_lr
 
